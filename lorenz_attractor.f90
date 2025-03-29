@@ -14,7 +14,6 @@ program lorenz_attractor
     ! Declare variables
     real, dimension(n, 3) :: y
     integer :: i
-    real, dimension(3) :: yin
 
     ! Generate time vector
     real, dimension(n) :: time
@@ -28,8 +27,7 @@ program lorenz_attractor
 
     ! Apply RK4 algorithm at each step
     do i = 1, n-1
-        y(i+1,:) = rk45_singlestep(lorenz, dt, time(i), y(i,:))
-        yin = y(i+1,:)
+        y(i+1,:) = rk4_singlestep(lorenz, dt, time(i), y(i,:))
     end do
 
     ! Write results to a file
