@@ -1,5 +1,5 @@
 program lorenz_attractor
-    ! The purpose of this script is to calculate the state variables of the Lorenz attractor using the Runge-Kutta method order 4 (RK45)
+    ! The purpose of this script is to calculate the state variables of the Lorenz attractor using the Runge-Kutta method order 4 (RK4)
     use linspace_module
     implicit none
 
@@ -26,7 +26,7 @@ program lorenz_attractor
     ! Provide inital guess
     y(1,:) = [-8.0, 8.0, 27.0]
 
-    ! Apply RK45 algorithm at each step
+    ! Apply RK4 algorithm at each step
     do i = 1, n-1
         y(i+1,:) = rk45_singlestep(lorenz, dt, time(i), y(i,:))
         yin = y(i+1,:)
@@ -51,7 +51,7 @@ contains
         dy(3) = y(1) * y(2) - beta * y(3)
     end function
 
-    function rk45_singlestep(fun, dt, t0, y0) result(yout)
+    function rk4_singlestep(fun, dt, t0, y0) result(yout)
         interface
             function fun(t, y) result(dy)
                 real, intent(in) :: t
