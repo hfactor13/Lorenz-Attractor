@@ -44,7 +44,7 @@ for i in range(n - 1):
     y[i+1,:] = rk4_singlestep(lorenz, dt, t[i], y[i,:])
 # %%
 # Load Fortran data
-fdata = np.loadtxt("./lorenz_data.dat")
+fdata = np.loadtxt("./output/lorenz_data.dat")
 #%%
 fig1 = plt.figure(figsize=(8,10))
 ax1 = fig1.add_subplot(projection = "3d")
@@ -57,7 +57,7 @@ ax1.set_title("Lorenz Attractor")
 ax1.legend()
 plt.tight_layout()
 plt.show(block = False)
-fig1.savefig("lorenz_system.svg")
+fig1.savefig("./output/lorenz_system.svg")
 
 # %%
 res = fdata - y
@@ -79,4 +79,4 @@ for i in range(3):
 
 plt.tight_layout()
 plt.show()
-fig2.savefig("residuals_plot.svg")
+fig2.savefig("./output/residuals_plot.svg")

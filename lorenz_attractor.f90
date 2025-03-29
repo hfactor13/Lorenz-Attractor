@@ -20,7 +20,7 @@ program lorenz_attractor
     time = linspace(0.0, T, n)
 
     ! Open file for writing data
-    open(unit=1, file="lorenz_data.dat", status="replace")
+    open(unit=1, file="./output/lorenz_data.dat", status = "replace")
 
     ! Provide inital guess
     y(1,:) = [-8.0, 8.0, 27.0]
