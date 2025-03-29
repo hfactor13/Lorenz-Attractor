@@ -34,7 +34,7 @@ program lorenz_attractor
 
     ! Write results to a file
     do i = 1, n
-        write(1, *) time(i), y(i, 1), y(i, 2), y(i, 3)
+        write(1, *) y(i, 1), y(i, 2), y(i, 3)
     end do
 
     close(1)
