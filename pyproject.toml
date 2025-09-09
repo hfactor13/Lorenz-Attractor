@@ -1,13 +1,19 @@
-[workspace]
-authors = ["Henry Cuzco <40706933+uiucmeche1317@users.noreply.github.com>"]
-channels = ["conda-forge", "main", "r", "msys2"]
+[project]
 name = "lorenz-attractor"
-platforms = ["osx-arm64"]
 version = "0.1.0"
+authors = [{ name = "Henry Cuzco", email = "40706933+uiucmeche1317@users.noreply.github.com" }]
 
-[tasks]
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[dependencies]
+[tool.pixi.project]
+channels = ["conda-forge", "main", "r", "msys2"]
+platforms = ["osx-arm64"]
+
+[tool.pixi.tasks]
+
+[tool.pixi.dependencies]
 appnope = { version = "==0.1.4", build = "pyhd8ed1ab_1" }
 asttokens = { version = "==3.0.0", build = "pyhd8ed1ab_1" }
 brotli = { version = "==1.1.0", build = "hd74edd7_2" }
